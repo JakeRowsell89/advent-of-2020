@@ -1,5 +1,6 @@
 package day1
 
 fun main() {
-    part1()
+    day1.part1.main()
+    day1.part2.main()
 }

@@ -1,4 +1,4 @@
-package day1
+package day1.part1
 
 import java.io.File
 
@@ -42,7 +42,7 @@ fun mainPart1(): Int? {
     return null
 }
 
-fun part1() {
+fun main() {
     val result = mainPart1()
     println("Day 1 part 1: $result")
 }
