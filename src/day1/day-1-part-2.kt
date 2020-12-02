@@ -30,7 +30,7 @@ fun findTripletWithSumSUM(l: List<Int>): Int?{
 }
 
 fun mainPart2(): Int? {
-    val numbers = getNumbersUnderSUM("src/day1/day-1-part-1-input")
+    val numbers = getNumbersUnderSUM("src/day1/day-1-input")
     val triplet: Int?  = findTripletWithSumSUM(numbers)
     if (triplet != null) {
         return triplet

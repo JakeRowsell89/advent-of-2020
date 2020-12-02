@@ -31,7 +31,7 @@ fun findPairWithSumSUM(l: List<Int>): Pair<Int, Int>?{
 
 fun mainPart1(): Int? {
     // A much simpler solution would be to get the list, and for each item search for SUM - item in the rest of the list
-    val (odds, evens) = getOddAndEvenPairsUnderSUM("src/day1/day-1-part-1-input")
+    val (odds, evens) = getOddAndEvenPairsUnderSUM("src/day1/day-1-input")
     val oddPair: Pair<Int, Int>?  = findPairWithSumSUM(odds)
     val evenPair: Pair<Int, Int>?  = findPairWithSumSUM(evens)
     if (evenPair != null) {
