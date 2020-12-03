@@ -2,7 +2,7 @@ package day2.part2
 
 import java.io.File
 
-val file = "src/day2/day-2-input"
+val file = "src/day2/day-3-input"
 
 fun isValidRow(row: String): Boolean {
     val data = row
