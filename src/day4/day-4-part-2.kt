@@ -2,8 +2,6 @@ package day4.part2
 
 import java.io.File
 
-val validEyeColours = listOf<String>("amb", "blu", "brn", "gry", "grn", "hzl", "oth")
-
 fun isValidHeight (s: String): Boolean {
     val amount = s.replace(Regex("(cm|in)$"), "").toInt()
     if (s.endsWith("cm")) {
@@ -21,7 +19,7 @@ val requiredFields = listOf<Pair<String, (String) -> Boolean>>(
     Pair("eyr", fun (s: String): Boolean { return s.length == 4 && s.toInt() >= 2020 && s.toInt() <= 2030}), // four digits; at least 2020 and at most 2030
     Pair("hgt", fun (s: String): Boolean { return isValidHeight(s)}),
     Pair("hcl", fun (s: String): Boolean { return Regex("^#[0-9a-f]{6}$").matches(s)}), //# followed by exactly six characters 0-9 or a-f.
-    Pair("ecl", fun (s: String): Boolean { return validEyeColours.contains(s)}), // exactly one of: amb blu brn gry grn hzl oth.
+    Pair("ecl", fun (s: String): Boolean { return Regex("^amb|blu|brn|gry|grn|hzl|oth").matches(s)}), // exactly one of: amb blu brn gry grn hzl oth.
     Pair("pid", fun (s: String): Boolean { return Regex("^[0-9]{9}$").matches(s)}) // a nine-digit number, including leading zeroes.
 )
 
