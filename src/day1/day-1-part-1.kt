@@ -29,10 +29,6 @@ fun findPairWithSumSUM(l: List<Int>): Pair<Int, Int>?{
     return null
 }
 
-fun mainPart1(): Int? {
-
-}
-
 fun main() {
     var result: Int? = null
     // A much simpler solution would be to get the list, and for each item search for SUM - item in the rest of the list
