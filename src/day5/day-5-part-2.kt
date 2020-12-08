@@ -14,16 +14,15 @@ fun getVal(str: String): Int {
     return (row * 8) + col
 }
 
-fun mainPart2(): Int? {
+fun main() {
     var binaryLines = mutableListOf<Int>()
+
     File("src/day5/day-5-input").forEachLine {
         binaryLines.add(getVal(it))
     }
-    val passBeforeMine = binaryLines.find { binaryLines.contains(it + 2) && !binaryLines.contains(it + 1) }
-    return if (passBeforeMine == null) null else passBeforeMine + 1
-}
 
-fun main() {
-    val result = mainPart2()
+    val passBeforeMine = binaryLines.find { binaryLines.contains(it + 2) && !binaryLines.contains(it + 1) }
+    val result =  if (passBeforeMine == null) null else passBeforeMine + 1
+
     println("Day 5 part 2: $result")
 }

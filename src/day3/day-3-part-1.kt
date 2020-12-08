@@ -8,6 +8,7 @@ fun getTreesOnPath(grid: MutableList<List<String>>) : Int {
     var trees = 0
     var pos = Pair(0, 0)
     var completed = false
+
     while (!completed) {
         if (grid[pos.second][pos.first] == "#") {
             trees += 1
@@ -22,18 +23,18 @@ fun getTreesOnPath(grid: MutableList<List<String>>) : Int {
             pos = Pair(0 + excess, pos.second)
         }
     }
+
     return trees
 }
 
-fun mainPart1(): Int {
+fun main() {
     var grid = mutableListOf<List<String>>()
+
     File(file).forEachLine {
         grid.add(it.trim().split("").drop(1).dropLast(1))
     }
-    return getTreesOnPath(grid)
-}
 
-fun main() {
-    val result = mainPart1()
+    val result = getTreesOnPath(grid)
+
     println("Day 3 part 1: $result")
 }

@@ -29,16 +29,13 @@ fun findTripletWithSumSUM(l: List<Int>): Int?{
     return null
 }
 
-fun mainPart2(): Int? {
+fun main() {
+    var result: Int? = null
     val numbers = getNumbersUnderSUM("src/day1/day-1-input")
     val triplet: Int?  = findTripletWithSumSUM(numbers)
     if (triplet != null) {
-        return triplet
+        result = triplet
     }
-    return null
-}
 
-fun main() {
-    val result = mainPart2()
     println("Day 1 part 2: $result")
 }

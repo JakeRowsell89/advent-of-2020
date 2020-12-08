@@ -16,17 +16,14 @@ fun isValidRow(row: String): Boolean {
     return positions.map{ password[it - 1] == character[0] }.filter { it }.size == 1
 }
 
-fun mainPart2(): Int {
-    var count = 0
+fun main() {
+    var result = 0
+
     File(file).forEachLine {
         if (isValidRow(it)) {
-            count += 1
+            result += 1
         }
     }
-    return count
-}
 
-fun main() {
-    val result = mainPart2()
     println("Day 2 part 2: $result")
 }

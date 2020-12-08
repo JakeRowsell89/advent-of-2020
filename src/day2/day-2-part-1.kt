@@ -24,17 +24,14 @@ fun isValidRow(row: String): Boolean {
     return Regex(reg).matches(input)
 }
 
-fun mainPart1(): Int {
-    var count = 0
+fun main() {
+    var result = 0
+
     File(file).forEachLine {
         if (isValidRow(it)) {
-            count += 1
+            result += 1
         }
     }
-    return count
-}
 
-fun main() {
-    val result = mainPart1()
     println("Day 2 part 1: $result")
 }

@@ -65,7 +65,7 @@ fun main() {
                 read(newArray)
             } catch (e: Error) {
                 val message = e.message
-                println("Day 8 part 1: $message")
+                println("Day 8 part 2: $message")
             }
         } else {
             continue

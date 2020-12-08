@@ -31,12 +31,9 @@ fun isValidPassport(passport: String): Boolean {
     return requiredFields.all{ passport.toLowerCase().contains(it + ":") }
 }
 
-fun mainPart1(): Int {
-    val scans = scanPassports("src/day4/day-4-input")
-    return scans.filter { isValidPassport(it) }.count()
-}
-
 fun main() {
-    val result = mainPart1()
+    val scans = scanPassports("src/day4/day-4-input")
+    val result = scans.filter { isValidPassport(it) }.count()
+
     println("Day 4 part 1: $result")
 }

@@ -30,19 +30,20 @@ fun findPairWithSumSUM(l: List<Int>): Pair<Int, Int>?{
 }
 
 fun mainPart1(): Int? {
+
+}
+
+fun main() {
+    var result: Int? = null
     // A much simpler solution would be to get the list, and for each item search for SUM - item in the rest of the list
     val (odds, evens) = getOddAndEvenPairsUnderSUM("src/day1/day-1-input")
     val oddPair: Pair<Int, Int>?  = findPairWithSumSUM(odds)
     val evenPair: Pair<Int, Int>?  = findPairWithSumSUM(evens)
     if (evenPair != null) {
-        return evenPair.first * evenPair.second
+        result = evenPair.first * evenPair.second
     } else if (oddPair != null) {
-        return oddPair.first * oddPair.second
+        result = oddPair.first * oddPair.second
     }
-    return null
-}
 
-fun main() {
-    val result = mainPart1()
     println("Day 1 part 1: $result")
 }
