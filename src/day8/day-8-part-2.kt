@@ -1,15 +1,25 @@
-package day8.part1
+package day8.part2
 
 import java.io.File
 import java.lang.Error
 
 var ranInstructions = mutableListOf<Int>()
 
+enum class Operation {
+    NOP, ACC, JMP
+}
+
+data class Instruction (val operation: Enum<Operation>, val value: Int)
+
 fun read(instructions: List<Instruction>, index: Int = 0, acc: Int = 0): Int {
     val instruction = instructions[index]
 
     if (ranInstructions.contains(index)) {
         return acc
+    }
+
+    if (index == (instructions.count() - 1)) {
+        throw Error("$acc")
     }
 
     ranInstructions.add(index)
@@ -24,12 +34,6 @@ fun read(instructions: List<Instruction>, index: Int = 0, acc: Int = 0): Int {
     }
 }
 
-enum class Operation {
-    NOP, ACC, JMP
-}
-
-data class Instruction (val operation: Enum<Operation>, val value: Int)
-
 fun makeInstruction(line: String): Instruction {
     val parts = line.split(" ")
     val operation = when (parts.first()) {
@@ -37,7 +41,7 @@ fun makeInstruction(line: String): Instruction {
         "acc" -> Operation.ACC
         else -> Operation.NOP
     }
-    return  Instruction(operation, parts.drop(1).first().toInt())
+    return Instruction(operation, parts.drop(1).first().toInt())
 }
 
 fun main() {
@@ -47,7 +51,24 @@ fun main() {
         instructions.add(makeInstruction(it))
     }
 
-    val result = read(instructions)
+    for (i in 0 until instructions.count()) {
+        if (instructions[i].operation != Operation.ACC) {
+            val newInstruct = listOf(Instruction(if (instructions[i].operation == Operation.JMP) Operation.NOP else Operation.JMP, instructions[i].value ))
+            val newArray = listOf(
+                instructions.slice(0..i - 1),
+                newInstruct,
+                instructions.slice(i+1..instructions.count()-1)
+            ).flatten()
 
-    println("Day 8 part 1: $result")
+            try {
+                ranInstructions.clear()
+                read(newArray)
+            } catch (e: Error) {
+                val message = e.message
+                println("Day 8 part 1: $message")
+            }
+        } else {
+            continue
+        }
+    }
 }
